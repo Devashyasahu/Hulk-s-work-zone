@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Group Classes - HULK'S WORK ZONE</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0d0d0d;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .header {
+      text-align: center;
+      background: linear-gradient(to bottom right, #00ff00, #006600);
+      color: black;
+      padding: 30px 10px;
+      box-shadow: 0 0 20px #00ff00;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+    }
+
+    .header h2 {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+
+    .scissor-section {
+      position: relative;
+      margin: 40px auto;
+      width: 90%;
+      background: #111;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+    }
+
+    .blade {
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      z-index: 2;
+      transition: transform 1s ease-in-out;
+    }
+
+    .left-blade {
+      left: 0;
+      background: #00ff00;
+      clip-path: polygon(0 0, 100% 0, 0 100%);
+    }
+
+    .right-blade {
+      right: 0;
+      background: #006600;
+      clip-path: polygon(100% 0, 100% 100%, 0 100%);
+    }
+
+    .scissor-content {
+      position: relative;
+      z-index: 1;
+      padding: 40px 20px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease-in-out;
+      text-align: center;
+    }
+
+    .scissor-section:hover .left-blade {
+      transform: translateX(-100%);
+    }
+
+    .scissor-section:hover .right-blade {
+      transform: translateX(100%);
+    }
+
+    .scissor-section:hover .scissor-content {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .scissor-content h2 {
+      color: #00ff00;
+      margin-bottom: 20px;
+    }
+
+    .scissor-content p {
+      max-width: 800px;
+      margin: 0 auto;
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    .back-btn {
+      margin-top: 30px;
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: black;
+      border: 2px solid #00ff00;
+      color: #00ff00;
+      text-decoration: none;
+      border-radius: 20px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .back-btn:hover {
+      background-color: #00ff00;
+      color: black;
+      box-shadow: 0 0 10px #00ff00;
+    }
+
+    @media (max-width: 600px) {
+      .scissor-content h2 {
+        font-size: 1.3rem;
+      }
+      .scissor-content p {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>HULK'S WORK ZONE</h1>
+    <h2>Group Classes</h2>
+  </header>
+
+  <section class="scissor-section">
+    <div class="blade left-blade"></div>
+    <div class="blade right-blade"></div>
+    <div class="scissor-content">
+      <h2>Group Classes for Every Fitness Level 🧘‍♀️💃</h2>
+      <p>
+        Join our vibrant community in various group classes tailored to all fitness levels. From calming yoga sessions to energetic Zumba and high-intensity HIIT workouts, our certified instructors guide you through fun and effective routines. Perfect for motivation, accountability, and meeting new fitness friends. Start moving together today!
+      </p>
+      <a href="facilites.html" class="back-btn">Back to Facilities</a>
+    </div>
+  </section>
+</body>
+</html>

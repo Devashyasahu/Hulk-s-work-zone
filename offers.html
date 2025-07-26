@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offers - HULK'S WORK ZONE</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0d0d0d;
+      color: white;
+    }
+    .header {
+      text-align: center;
+      padding: 30px 15px;
+      background: linear-gradient(to bottom right, #00ff00, #006600);
+      color: black;
+      box-shadow: 0 0 20px #00ff00;
+    }
+    .header h1 {
+      font-size: 2rem;
+    }
+    .header h2 {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+
+    .scissor-reveal-section {
+      position: relative;
+      margin: 40px auto;
+      overflow: hidden;
+      border-radius: 15px;
+      background: #111;
+      box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+      width: 90%;
+    }
+
+    .blade {
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      z-index: 2;
+      transition: transform 1s ease-in-out;
+    }
+
+    .left-blade {
+      left: 0;
+      background: #00ff00;
+      clip-path: polygon(0 0, 100% 0, 0 100%);
+    }
+
+    .right-blade {
+      right: 0;
+      background: #006600;
+      clip-path: polygon(100% 0, 100% 100%, 0 100%);
+    }
+
+    .scissor-content {
+      position: relative;
+      z-index: 1;
+      padding: 40px 20px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease-in-out;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .scissor-reveal-section:hover .left-blade {
+      transform: translateX(-100%);
+    }
+
+    .scissor-reveal-section:hover .right-blade {
+      transform: translateX(100%);
+    }
+
+    .scissor-reveal-section:hover .scissor-content {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .offer-card {
+      background: #1a1a1a;
+      border: 2px solid #00ff00;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 0 10px #00ff00;
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+
+    .offer-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px #00ff00;
+    }
+
+    .offer-card h3 {
+      color: #00ff00;
+      margin-bottom: 10px;
+    }
+
+    .offer-card p {
+      color: #ccc;
+      margin-bottom: 15px;
+    }
+
+    .offer-card a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: black;
+      color: #00ff00;
+      text-decoration: none;
+      border: 2px solid #00ff00;
+      border-radius: 20px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .offer-card a:hover {
+      background-color: #00ff00;
+      color: black;
+    }
+
+    .bottom-navbar {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100%);
+      display: flex;
+      gap: 15px;
+      background: #0d0d0d;
+      padding: 10px 20px;
+      border-radius: 30px;
+      box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+      transition: transform 0.5s ease, opacity 0.5s ease;
+      z-index: 999;
+      opacity: 0;
+    }
+
+    .bottom-navbar.show {
+      transform: translateX(-50%) translateY(0%);
+      opacity: 1;
+    }
+
+    .bottom-navbar a {
+      color: #00ff00;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 16px;
+      background-color: black;
+      border: 2px solid #00ff00;
+      border-radius: 20px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .bottom-navbar a:hover {
+      background-color: #00ff00;
+      color: black;
+    }
+
+    @media (max-width: 768px) {
+      .scissor-content {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 500px) {
+      .scissor-content {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>HULK'S WORK ZONE</h1>
+    <h2>Special Offers</h2>
+  </header>
+
+  <section class="scissor-reveal-section">
+    <div class="blade left-blade"></div>
+    <div class="blade right-blade"></div>
+    <div class="scissor-content">
+      <div class="offer-card">
+        <h3>Transformation Challenge</h3>
+        <p>Join our 8-week challenge and get a chance to win big!</p>
+        <a href="offer1.html">View Offer</a>
+      </div>
+      <div class="offer-card">
+        <h3>Summer Fat Burn</h3>
+        <p>Get 20% off on all fat-loss programs this summer!</p>
+        <a href="offer2.html">View Offer</a>
+      </div>
+      <div class="offer-card">
+        <h3>New Year, New You</h3>
+        <p>Kickstart your resolution with a free month on 3-month signup.</p>
+        <a href="offer3.html">View Offer</a>
+      </div>
+      <div class="offer-card">
+        <h3>Student Discount</h3>
+        <p>Flat 30% off for students with valid ID.</p>
+        <a href="offer4.html">View Offer</a>
+      </div>
+      <div class="offer-card">
+        <h3>Refer a Friend</h3>
+        <p>Bring a friend and both get 15% off your subscriptions.</p>
+        <a href="offer5.html">View Offer</a>
+      </div>
+      <div class="offer-card">
+        <h3>Free Diet Plan</h3>
+        <p>Sign up this week and receive a customized meal plan.</p>
+        <a href="offer6.html">View Offer</a>
+      </div>
+      <div class="offer-card">
+        <h3>Weekend Warrior</h3>
+        <p>Pay for weekends only. Flexible fitness for your lifestyle.</p>
+        <a href="offer7.html">View Offer</a>
+      </div>
+      <div class="offer-card">
+        <h3>Couple Goals</h3>
+        <p>Join with your partner and receive 25% off for both!</p>
+        <a href="offer8.html">View Offer</a>
+      </div>
+      <div class="offer-card">
+        <h3>Anniversary Special</h3>
+        <p>Celebrate our gym's anniversary with surprise rewards!</p>
+        <a href="offer9.html">View Offer</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="bottom-navbar" id="bottomNav">
+    <a href="index.html">Home</a>
+    <a href="facilites.html">Facilities</a>
+    <a href="form.html">Form</a>
+  </div>
+
+  <script>
+    let bottomNav = document.getElementById("bottomNav");
+    let lastScroll = 0;
+
+    window.addEventListener("scroll", () => {
+      let scrollY = window.scrollY || window.pageYOffset;
+      let scrollHeight = document.body.offsetHeight;
+      let windowHeight = window.innerHeight;
+
+      if (windowHeight + scrollY >= scrollHeight - 50) {
+        bottomNav.classList.add("show");
+      } else if (scrollY < lastScroll) {
+        bottomNav.classList.remove("show");
+      }
+
+      lastScroll = scrollY;
+    });
+  </script>
+</body>
+</html>

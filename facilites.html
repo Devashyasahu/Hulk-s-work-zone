@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Facilities - HULK'S WORK ZONE</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0d0d0d;
+      color: white;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .header {
+      text-align: center;
+      background: linear-gradient(to bottom right, #00ff00, #006600);
+      color: black;
+      padding: 30px 10px;
+      box-shadow: 0 0 20px #00ff00;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+    }
+
+    .header h2 {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+
+    .scissor-reveal-section {
+      position: relative;
+      margin: 30px auto;
+      overflow: hidden;
+      border-radius: 15px;
+      background: #111;
+      box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+      width: 90%;
+    }
+
+    .blade {
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      z-index: 2;
+      transition: transform 1s ease-in-out;
+    }
+
+    .left-blade {
+      left: 0;
+      background: #00ff00;
+      clip-path: polygon(0 0, 100% 0, 0 100%);
+    }
+
+    .right-blade {
+      right: 0;
+      background: #006600;
+      clip-path: polygon(100% 0, 100% 100%, 0 100%);
+    }
+
+    .scissor-content {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 15px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease-in-out;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .scissor-reveal-section:hover .left-blade {
+      transform: translateX(-100%);
+    }
+
+    .scissor-reveal-section:hover .right-blade {
+      transform: translateX(100%);
+    }
+
+    .scissor-reveal-section:hover .scissor-content {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .facility-card {
+      background: #1a1a1a;
+      border: 2px solid #00ff00;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 0 10px #00ff00;
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+
+    .facility-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px #00ff00;
+    }
+
+    .facility-card strong {
+      color: #00ff00;
+      font-size: 1.1rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .facility-card p {
+      color: #ccc;
+    }
+
+    .facility-card a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 6px 14px;
+      background-color: black;
+      color: #00ff00;
+      border: 1px solid #00ff00;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s ease;
+    }
+
+    .facility-card a:hover {
+      background-color: #00ff00;
+      color: black;
+    }
+
+    .bottom-navbar {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100%);
+      display: flex;
+      gap: 15px;
+      background: #0d0d0d;
+      padding: 10px 20px;
+      border-radius: 30px;
+      box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+      transition: transform 0.5s ease, opacity 0.5s ease;
+      z-index: 999;
+      opacity: 0;
+    }
+
+    .bottom-navbar a {
+      color: #00ff00;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 16px;
+      background-color: black;
+      border: 2px solid #00ff00;
+      border-radius: 20px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .bottom-navbar a:hover {
+      background-color: #00ff00;
+      color: black;
+    }
+
+    .bottom-navbar.show {
+      transform: translateX(-50%) translateY(0%);
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      .scissor-content {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 500px) {
+      .scissor-content {
+        grid-template-columns: 1fr;
+      }
+
+      .header h1 {
+        font-size: 1.6rem;
+      }
+
+      .header h2 {
+        font-size: 1rem;
+      }
+
+      .bottom-navbar {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 15px;
+      }
+
+      .bottom-navbar a {
+        font-size: 0.9rem;
+        padding: 6px 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>HULK'S WORK ZONE</h1>
+    <h2>Leading Gym in Dabra</h2>
+  </header>
+
+  <section class="scissor-reveal-section">
+    <div class="blade left-blade"></div>
+    <div class="blade right-blade"></div>
+    <div class="scissor-content">
+      <div class="facility-card"><strong>🏃‍♂️ Cardio Area</strong><p>Treadmills, bikes & elliptical machines to get your heart racing.</p><a href="cardio area.html">View More</a></div>
+      <div class="facility-card"><strong>🏋️ Strength Area</strong><p>Free weights and resistance machines for muscle training.</p><a href="strength.html">View More</a></div>
+      <div class="facility-card"><strong>🧘 Group Classes</strong><p>Yoga, Zumba, HIIT, and more in peaceful studios.</p><a href="group.html">View More</a></div>
+      <div class="facility-card"><strong>🪑 Functional Zone</strong><p>TRX, kettlebells, ropes, and core gear for dynamic workouts.</p><a href="functional.html">View More</a></div>
+      <div class="facility-card"><strong>🏃‍♂️ Indoor Track</strong><p>Stay active with all-weather indoor walking/running lanes.</p><a href="track.html">View More</a></div>
+      <div class="facility-card"><strong>🧼 Locker Rooms</strong><p>Clean showers, lockers, and changing space for members.</p><a href="locker.html">View More</a></div>
+      <div class="facility-card"><strong>👨‍🏫 Personal Training</strong><p>Certified coaches for 1-on-1 transformation programs.</p><a href="training.html">View More</a></div>
+      <div class="facility-card"><strong>🛍️ Pro Shop</strong><p>Shop for apparel, supplements, and gym gear inside.</p><a href="shop.html">View More</a></div>
+      <div class="facility-card"><strong>💆 Therapy & Massage</strong><p>Relieve stress and recover faster with expert care.</p><a href="therapy.html">View More</a></div>
+    </div>
+  </section>
+
+  <div class="bottom-navbar" id="bottomNav">
+    <a href="index.html">Home</a>
+    <a href="offers.html">Offers</a>
+  </div>
+
+  <script>
+    let bottomNav = document.getElementById("bottomNav");
+    let lastScroll = 0;
+
+    window.addEventListener("scroll", () => {
+      let scrollY = window.scrollY || window.pageYOffset;
+      let scrollHeight = document.body.offsetHeight;
+      let windowHeight = window.innerHeight;
+
+      if (windowHeight + scrollY >= scrollHeight - 50) {
+        bottomNav.classList.add("show");
+      } else if (scrollY < lastScroll) {
+        bottomNav.classList.remove("show");
+      }
+
+      lastScroll = scrollY;
+    });
+  </script>
+</body>
+</html>

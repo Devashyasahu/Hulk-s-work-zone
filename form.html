@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join Form - HULK'S WORK ZONE</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0d0d0d;
+      color: white;
+      line-height: 1.6;
+    }
+    .header {
+      text-align: center;
+      padding: 30px 15px;
+      background: linear-gradient(to bottom right, #00ff00, #006600);
+      color: black;
+      box-shadow: 0 0 20px #00ff00;
+    }
+    .header h1 {
+      font-size: 2rem;
+    }
+    .header h2 {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+    .scissor-section {
+      position: relative;
+      margin: 40px auto;
+      overflow: hidden;
+      border-radius: 15px;
+      background: #111;
+      width: 90%;
+      box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+    }
+    .blade {
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      z-index: 2;
+      transition: transform 1s ease-in-out;
+    }
+    .left-blade {
+      left: 0;
+      background: #00ff00;
+      clip-path: polygon(0 0, 100% 0, 0 100%);
+    }
+    .right-blade {
+      right: 0;
+      background: #006600;
+      clip-path: polygon(100% 0, 100% 100%, 0 100%);
+    }
+    .content {
+      position: relative;
+      z-index: 1;
+      padding: 40px 20px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease-in-out;
+      text-align: center;
+    }
+    .scissor-open .left-blade {
+      transform: translateX(-100%);
+    }
+    .scissor-open .right-blade {
+      transform: translateX(100%);
+    }
+    .scissor-open .content {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      text-align: left;
+    }
+    label {
+      font-weight: bold;
+    }
+    input, select, textarea {
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+    }
+    button[type="submit"] {
+      padding: 10px;
+      background-color: black;
+      color: #00ff00;
+      border: 2px solid #00ff00;
+      border-radius: 20px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button[type="submit"]:hover {
+      background-color: #00ff00;
+      color: black;
+    }
+    .nav-buttons {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    .nav-buttons a {
+      padding: 10px 20px;
+      background-color: black;
+      color: #00ff00;
+      border: 2px solid #00ff00;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease-in-out;
+    }
+    .nav-buttons a:hover {
+      background-color: #00ff00;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>HULK'S WORK ZONE</h1>
+    <h2>Join Us - Get Fit Today 💪</h2>
+  </header>
+
+  <section class="scissor-section" id="scissorSection">
+    <div class="blade left-blade"></div>
+    <div class="blade right-blade"></div>
+    <div class="content">
+      <form id="joinForm" onsubmit="handleSubmit(event)">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <label for="plan">Preferred Plan:</label>
+        <select id="plan" name="plan" required>
+          <option value="">--Select--</option>
+          <option value="Monthly">Monthly</option>
+          <option value="Quarterly">Quarterly</option>
+          <option value="Yearly">Yearly</option>
+        </select>
+
+        <label for="goal">Fitness Goal:</label>
+        <textarea id="goal" name="goal" rows="3" placeholder="e.g., Weight loss, Muscle gain..."></textarea>
+
+        <button type="submit">Submit</button>
+      </form>
+
+      <div class="nav-buttons">
+        <a href="index.html">Home</a>
+        <a href="offers.html">Offers</a>
+        <a href="facilites.html">Facilities</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Automatically open scissor on load
+    window.onload = () => {
+      document.getElementById('scissorSection').classList.add('scissor-open');
+    };
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      alert("Thank you for joining Hulk's Work Zone! 💪 We'll reach out to you soon.");
+      // Reset form or redirect if needed
+    }
+  </script>
+</body>
+</html>

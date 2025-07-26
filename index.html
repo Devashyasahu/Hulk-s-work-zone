@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HULK'S WORK ZONE - Scissor Reveal</title>
+  <style>
+    /* Global Reset and Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0d0d0d;
+      color: white;
+      line-height: 1.6;
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    /* Header Style */
+    .header {
+      text-align: center;
+      background: linear-gradient(to bottom right, #00ff00, #006600);
+      color: black;
+      padding: 40px 20px;
+      box-shadow: 0 0 20px #00ff00;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .header h1, .header h2 {
+      font-size: 2rem;
+      padding: 10px;
+    }
+
+    /* Scissor Section Container */
+    .scissor-reveal-section {
+      position: relative;
+      height: 300px;
+      margin: 60px auto;
+      overflow: hidden;
+      border-radius: 20px;
+      background: #111;
+      box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+      width: 90%;
+    }
+
+    /* Scissor Blades */
+    .blade {
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      z-index: 2;
+      transition: transform 1s ease-in-out;
+    }
+
+    .left-blade {
+      left: 0;
+      background: #00ff00;
+      clip-path: polygon(0 0, 100% 0, 0 100%);
+    }
+
+    .right-blade {
+      right: 0;
+      background: #006600;
+      clip-path: polygon(100% 0, 100% 100%, 0 100%);
+    }
+
+    /* Reveal Info */
+    .scissor-info {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 1;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      opacity: 0;
+      max-width: 600px;
+      width: 90%;
+      padding: 20px;
+      transition: opacity 1s ease-in-out 0.5s;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 15px;
+      box-shadow: 0 0 10px #00ff00;
+    }
+
+    /* Button Style */
+    .scissor-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 25px;
+      background: black;
+      color: #00ff00;
+      text-decoration: none;
+      border: 2px solid #00ff00;
+      border-radius: 20px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .scissor-btn:hover {
+      background: #00ff00;
+      color: black;
+      box-shadow: 0 0 15px #00ff00;
+    }
+
+    /* On Hover, trigger blade open and info reveal */
+    .scissor-reveal-section:hover .left-blade {
+      transform: translateX(-100%);
+    }
+
+    .scissor-reveal-section:hover .right-blade {
+      transform: translateX(100%);
+    }
+
+    .scissor-reveal-section:hover .scissor-info {
+      opacity: 1;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #111;
+      color: #ccc;
+      margin-top: 40px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .scissor-info h2 {
+        font-size: 1.3rem;
+      }
+
+      .scissor-info p {
+        font-size: 0.95rem;
+      }
+
+      .scissor-btn {
+        font-size: 0.9rem;
+        padding: 8px 20px;
+      }
+
+      .header h1, .header h2 {
+        font-size: 1.5rem;
+        padding: 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <h1>HULK'S WORK ZONE</h1>
+    <h2>Leading Gym in Dabra</h2>
+  </header>
+
+  <!-- Scissor Effect Section -->
+  <section class="scissor-reveal-section">
+    <div class="blade left-blade"></div>
+    <div class="blade right-blade"></div>
+    <div class="scissor-info">
+      <h2>About Hulk’s Work Zone 🏋️‍♂️</h2>
+      <p>
+        Welcome to Dabra's leading gym! 💪 Get expert training, modern machines, personal coaching, and transformation programs tailored for your fitness journey.
+      </p>
+      <a href="facilites.html" class="scissor-btn">Explore Facilities</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 HULK'S WORK ZONE. All rights reserved.</p>
+  </footer>
+</body>
+</html>
